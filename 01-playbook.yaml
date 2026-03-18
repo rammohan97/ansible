@@ -2,4 +2,4 @@
   hosts: node  # Which server you want to ping
   tasks:
   - name: Ping
-    anible.builtin.ping:
+    ansible.builtin.ping:
