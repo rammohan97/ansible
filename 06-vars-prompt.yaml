@@ -1,0 +1,10 @@
+- name: Variables from prompt
+  hosts: node
+  vars_prompt:
+    - name: username   # Variable name to store the user input
+      prompt: "Enter the username"
+      private: false
+  tasks:
+    - name: Print the credentials
+      ansible.builtin.debug:
+        msg: "The username is {{ username }}"
