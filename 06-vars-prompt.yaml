@@ -4,7 +4,10 @@
     - name: username   # Variable name to store the user input
       prompt: "Enter the username"
       private: false
+    - name: password
+      prompt: "Enter the password"
+      private: true  # Hide the input for password
   tasks:
     - name: Print the credentials
       ansible.builtin.debug:
-        msg: "The username is {{ username }}"
+        msg: "The username is {{ username }} and the password is {{ password }}"
