@@ -1,0 +1,6 @@
+- name: Varibales from arguments
+  hosts: node
+  tasks:
+    - name: Print the credentials from arguments
+      ansible.builtin.debug:
+        msg: "The username is {{ username }} and the password is {{ password }}"
