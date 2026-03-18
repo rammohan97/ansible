@@ -6,6 +6,8 @@
     COURSE: "Ansible"
   tasks:
   - name: "Print the Name and Course Details"
+    vars:
+      NAME: "Mohan"  # Task-level variable that overrides the playbook-level variable
     ansible.builtin.debug:  # Use the debug module to print the variables
       msg: "Name is : {{ NAME }} and Course is : {{ COURSE }}"
 
