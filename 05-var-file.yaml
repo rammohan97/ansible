@@ -1,0 +1,9 @@
+- name: "Variables from a File"
+  hosts: local
+  connection: local
+  vars_files:  # Include variables from an external file
+    - variables.yaml
+  tasks:
+  - name: "Print the Name, Course and Duration Details"
+    ansible.builtin.debug:
+      msg: "Name is : {{ NAME }}, Course is : {{ COURSE }} and Duration is : {{ DURATION }}"
