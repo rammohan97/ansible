@@ -1,0 +1,6 @@
+- name: variables from inventory
+  hosts: node
+  tasks:
+    - name: Print the credentials from inventory
+      ansible.builtin.debug:
+        msg: "The username is {{ username }} and the password is {{ password }}"
