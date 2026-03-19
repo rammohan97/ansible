@@ -52,4 +52,10 @@
       ansible.builtin.debug:
         msg: "Command output: {{ command_output.stdout }}" # The stdout attribute of the registered variable contains the standard output of the command that was executed. In this case, it will contain the lines from the /etc/passwd file that contain the word "root".
 
+    - name: Redirect the command output
+      ansible.builtin.commnd: ls -lrt > /tmp/output.txt # The command module is used to execute a command on the remote host. In this case, it is executing the ls -lrt command and redirecting its output to a file located at /tmp/output.txt on the remote host. The > operator is used for output redirection in shell commands, which means that the output of the ls -lrt command will be written to the specified file instead of being displayed in the terminal.
+      register: redirected_output
 
+    - name: Print the redirected command output
+      ansible.builtin.debug:
+        msg: "Redirected command output: {{ redirected_output }}" # The stdout attribute of the registered variable will contain the output of the command that was executed. However, since the output is being redirected to a file, the stdout will likely be empty or contain only a message indicating that the command was executed successfully. To see the actual output of the command, you would need to read the contents of the /tmp/output.txt file on the remote host.
