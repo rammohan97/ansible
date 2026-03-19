@@ -4,4 +4,4 @@
   tasks:
     - name: Gather facts 
       ansible.builtin.debug:
-        msg: "{{ ansible_facts }}"
+        msg: "{{ ansible_facts }}" # ansible_facts is a variable that contains all the facts gathered by Ansible about the system. It is a dictionary that contains various information about the system, such as its hostname, IP address, operating system, and more. By using ansible_facts, you can access this information and use it in your playbook to perform various tasks based on the system's characteristics.

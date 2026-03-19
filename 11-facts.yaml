@@ -4,13 +4,13 @@
   become: yes
   tasks:
     - name: Install Nginx if RedHat family
-      ansible.builtin.dnf:
+      ansible.builtin.dnf:                # This is the module that will be used to install Nginx on RedHat family systems
         name: nginx
         state: latest
       when: ansible_os_family == "RedHat"  # Check if the OS family is RedHat
 
     - name: Install Nginx if Debian family
-      ansible.builtin.apt:
+      ansible.builtin.apt:                 # This is the module that will be used to install Nginx on Debian family systems
         name: nginx
         state: latest
       when: ansible_os_family == "Debian"  # Check if the OS family is Debian
