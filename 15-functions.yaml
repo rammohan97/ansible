@@ -47,6 +47,8 @@
     - name: Grep for root
       ansible.builtin.command: cat /etc/passwd | grep root
       register: command_output
+    
+    - name: Display the command output
       ansible.builtin.debug:
         msg: "Command output: {{ command_output.stdout }}" # The stdout attribute of the registered variable contains the standard output of the command that was executed. In this case, it will contain the lines from the /etc/passwd file that contain the word "root".
 
