@@ -42,5 +42,5 @@
     - name: Save JSON to file
       ansible.builtin.copy:
         dest: ./student.json
-        content: "{{ student_info | to_json }}" # The content parameter is used to specify the content of the file being created or modified. In this case, it is set to the JSON representation of the student_info variable, which is generated using the to_json filter.
+        content: "{{ student_info | to_nice_json }}" # The content parameter is used to specify the content of the file being created or modified. In this case, it is set to the JSON representation of the student_info variable, which is generated using the to_json filter.
 
