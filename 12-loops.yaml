@@ -1,0 +1,11 @@
+- name: loops
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Loop the names
+      ansible.builtin.debug:
+        msg: "Hello {{ item }}"   # item is the default variable name for the current item in the loop
+      loop:
+        - Alice
+        - Bob
+        - Charlie
