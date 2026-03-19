@@ -11,3 +11,14 @@
     - name: Print the user check result
       ansible.builtin.debug:
         msg: "User check result: {{ user_check }}" # The debug module is used to print the value of the registered variable user_check, which contains the result of the command that was executed in the previous task. This will help you understand whether the user "roboshop" exists or not based on the output of the command.
+
+    - name: create user if not exists
+      ansible.builtin.command: useradd roboshop
+      when: user_check.rc != 0 # The when parameter is used to specify a condition that must be met for the task to be executed. In this case, the task to create the user "roboshop" will only be executed if the return code (rc) of the previous command (user_check) is not equal to 0, which indicates that the user does not exist. If the user already exists (rc == 0), this task will be skipped.
+
+
+
+
+
+
+
