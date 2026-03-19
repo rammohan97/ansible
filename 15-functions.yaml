@@ -30,4 +30,11 @@
     - name: Split the List of Disctionary into a map
       ansible.builtin.debug:
         msg: "List of Tags are: {{ ListTags | items2dict(key_name='key', value_name='value') }}" # The items2dict filter is used to convert a list of dictionaries into a single dictionary.
-        
+
+    - name: Read yaml and take it into variable
+      ansible.builtin.set_fact:  # The set_fact module is used to set new variables.
+        student_info: "{{ lookup('file', 'student.yaml') | from_yaml }}" # The lookup function is used to read the contents of a file, and the from_yaml filter is used to parse the YAML content into a Python dictionary.
+
+    - name: Convert the yaml data into json format
+      ansible.builtin.debug:
+        msg: "Student Info in JSON format: {{ student_info | to_json }}" # The to_json filter is used to convert a Python dictionary into a JSON string.
