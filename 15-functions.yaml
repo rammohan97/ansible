@@ -45,7 +45,7 @@
         content: "{{ student_info | to_nice_json }}" # The content parameter is used to specify the content of the file being created or modified. In this case, it is set to the JSON representation of the student_info variable, which is generated using the to_json filter.
 
     - name: Grep for root
-      ansible.builtin.shell: cat /etc/passwd | grep root
+      ansible.builtin.command: cd /home/ec2-user || pwd
       register: command_output
     
     - name: Display the command output
