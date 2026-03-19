@@ -3,9 +3,16 @@
   connection: local
   vars:
     tech: Ansible, Python, Linux, DevOps 
+    # Dictinoary variable
     tags:
       Application: Web
       Environment: Production
+    # List variable 
+    ListTags:
+      - key: Application
+        value: Web
+      - key: Environment
+        value: Production
   tasks:
     - name: Default variable
       ansible.builtin.debug:
@@ -19,3 +26,8 @@
     - name: Split the Disctionary into a list
       ansible.builtin.debug:
         msg: "Tags are : {{ tags | dict2items }}" # The dict2items filter is used to convert a dictionary into a list of dictionaries,
+
+    - name: Split the List of Disctionary into a map
+      ansible.builtin.debug:
+        msg: "List of Tags are: {{ ListTags | items2dict(key_name='key', value_name='value') }}" # The items2dict filter is used to convert a list of dictionaries into a single dictionary.
+        
