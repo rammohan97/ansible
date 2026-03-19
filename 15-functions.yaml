@@ -38,3 +38,9 @@
     - name: Convert the yaml data into json format
       ansible.builtin.debug:
         msg: "Student Info in JSON format: {{ student_info | to_json }}" # The to_json filter is used to convert a Python dictionary into a JSON string.
+
+    - name: Save JSON to file
+      ansible.builtin.copy:
+        dest: ./student.json
+        content: "{{ student_info | to_json }}" # The content parameter is used to specify the content of the file being created or modified. In this case, it is set to the JSON representation of the student_info variable, which is generated using the to_json filter.
+
