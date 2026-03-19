@@ -1,0 +1,13 @@
+- name: User Creation
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Check user exists or not
+      ansible.builtin.command: id roboshop
+      register: user_check
+      ignore_errors: true  # The ignore_errors parameter is used to specify that if the task fails, it should not cause the entire playbook to fail. In this case, if the command to check for the user "roboshop" fails (e.g., if the user does not exist), the playbook will continue to execute the next tasks instead of stopping.
+    
+    - name: Print the user check result
+      ansible.builtin.debug:
+        msg: "User check result: {{ user_check }}" # The debug module is used to print the value of the registered variable user_check, which contains the result of the command that was executed in the previous task. This will help you understand whether the user "roboshop" exists or not based on the output of the command.
