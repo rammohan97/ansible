@@ -1,0 +1,20 @@
+- name: data types
+  hosts: local
+  connection: local
+  vars:
+    name: "DEvops with AWS"  # string
+    duration: 3  # number
+    is_online: true  # boolean
+    tools:      # List
+      - Ansible
+      - Terraform
+      - Docker  
+    concepts: # Dictionary
+      cloud: AWS
+      configuration_management: Ansible
+  tasks:
+    - name: Print course details
+      ansible.builtin.debug:
+        msg: "Course: {{ name }}, Duration: {{ duration }} months, Online: {{ is_online }}, Tools: {{ tools }}, Concepts: {{ concepts }}"
+
+
