@@ -1,0 +1,8 @@
+- name: functions
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Default variable
+      ansible.builtin.debug:
+        msg: "Hello, {{ name | default('World') }}"
+        # The default filter is used to provide a default value for a variable if it is not defined. In this case, if the variable 'name' is not defined, it will use 'World' as the default value. So if you run this playbook without defining the 'name' variable, it will output "Hello, World". If you define the 'name' variable with a value, it will output "Hello, <value of name>".
