@@ -1,0 +1,12 @@
+- name: Conditions
+  hosts: local
+  connection: local
+  prompts:
+    - name: "number"
+      prompt: "Enter a number to check if it's even or odd"
+      private: no
+  tasks:
+    - name: Check if a number is even or odd
+      ansible.builtin.debug:
+        msg: "Given Number {{ number }} is Even"
+      when: number | int % 2 == 0
