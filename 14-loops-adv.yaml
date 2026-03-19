@@ -1,0 +1,14 @@
+- name: Install and unintall packages using loop
+  hosts: local
+  connection: local
+  become: true
+  tasks:
+    - name: Install and uninstall packages
+      ansible.builtin.package:
+        name: "{{ item.name }}"  # item is the default variable name for the current item in the loop
+        state: "{{ item.state }}" # state is a variable defined in the loop for each package
+      loop:
+        - {name: "nginx", state: "absent"}
+        - {name: "mysql-server", state: "latest"}
+        - {name: "zip", state: "absent"}
+        - {name: "curl", state: "latest"}
