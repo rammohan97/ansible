@@ -1,7 +1,7 @@
 - name: Conditions
   hosts: local
   connection: local
-  prompts:
+  vars_prompt:
     - name: "number"
       prompt: "Enter a number to check if it's even or odd"
       private: no
