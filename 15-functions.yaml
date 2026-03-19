@@ -3,6 +3,9 @@
   connection: local
   vars:
     tech: Ansible, Python, Linux, DevOps 
+    tags:
+      Application: Web
+      Environment: Production
   tasks:
     - name: Default variable
       ansible.builtin.debug:
@@ -11,4 +14,8 @@
 
     - name: Split the string into a list
       ansible.builtin.debug:
-        msg: "Technologies are: {{ tech | split(', ') }}"
+        msg: "Technologies are: {{ tech | split(', ') }}" # The split filter is used to split a string into a list based on a specified delimiter.
+
+    - name: Split the Disctionary into a list
+      ansible.builtin.debug:
+        msg: "Tags are : {{ tags | dict2items }}" # The dict2items filter is used to convert a dictionary into a list of dictionaries,
